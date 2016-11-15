@@ -1,0 +1,100 @@
+//
+// Navs
+// --------------------------------------------------
+
+
+// Base class
+// --------------------------------------------------
+
+.fdd-nav {
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  &:extend(.clearfix all);
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: 0.5rem;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: @nav-link-hover-bg;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: @nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: @nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: @cursor-disabled;
+      }
+    }
+  }
+
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: @nav-link-hover-bg;
+      border-color: @link-color;
+    }
+  }
+}
+
+
+//
+// Tabs
+// --------------------------------------------------
+
+.fdd-nav-tabs {
+  font-size: @font-size-large;
+  list-style: none;
+  > li {
+    display: block;
+    position: relative;
+    border-bottom: 2px solid transparent;
+    padding: 0.5rem;
+    float: left;
+    margin-bottom: -1px;
+    margin: 0 10px;
+    > a {
+      margin-right: 2px;
+      line-height: @line-height-base;
+      color: #4a4a4a;
+      text-decoration: none;
+    }
+
+    &.active {
+      border-bottom-color: @primary-color-hover;
+       > a {
+        &,
+        &:hover,
+        &:focus {
+          color: @primary-color-hover;
+          cursor: @cursor-pointer;
+        }
+      }
+    }
+
+    .unread-tag {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      top: 6px;
+      right: 0;
+      background-color: @primary-color-hover;
+      border-radius: 50%;
+    }
+  }
+}

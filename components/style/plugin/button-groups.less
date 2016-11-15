@@ -1,0 +1,118 @@
+//
+// Button groups
+//
+
+// Make the div behave like a button
+.fdd-btn-group,
+.fdd-btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; // match .btn alignment given font-size hack above
+  > .fdd-btn {
+    position: relative;
+    float: left;
+    // Bring the "active" button to the front
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+  }
+	> .fdd-dropdown {
+		float: left;
+		margin-right: 10px;
+	}
+}
+
+// Prevent double borders when buttons are next to each other
+.fdd-btn-group {
+  .fdd-btn + .fdd-btn,
+  .fdd-btn + .fdd-btn-group,
+  .fdd-btn-group + .fdd-btn,
+  .fdd-btn-group + .fdd-btn-group {
+    margin-left: -1px;
+  }
+}
+
+.fdd-btn-group > .fdd-btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+
+// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+.fdd-btn-group > .fdd-btn:first-child {
+  margin-left: 0;
+  &:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+  }
+}
+// Need .dropdown-toggle since :last-child doesn't apply, given that a .dropdown-menu is used immediately after it
+.fdd-btn-group > .fdd-btn:last-child:not(:first-child),
+.fdd-btn-group > .dropdown-toggle:not(:first-child) {
+  border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+// Vertical button groups
+// ----------------------
+
+.fdd-btn-group-vertical {
+  > .fdd-btn,
+  > .fdd-btn-group,
+  > .fdd-btn-group > .fdd-btn {
+    display: block;
+    float: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  // Clear floats so dropdown menus can be properly placed
+  > .fdd-btn-group {
+    &:extend(.clearfix all);
+    > .fdd-btn {
+      float: none;
+    }
+  }
+
+  > .fdd-btn + .fdd-btn,
+  > .fdd-btn + .fdd-btn-group,
+  > .fdd-btn-group + .fdd-btn,
+  > .fdd-btn-group + .fdd-btn-group {
+    margin-top: -1px;
+    margin-left: 0;
+  }
+}
+
+.fdd-btn-group-vertical > .fdd-btn {
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+  &:first-child:not(:last-child) {
+		border-top-left-radius: @border-radius-base;
+		border-top-right-radius: @border-radius-base;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+  }
+  &:last-child:not(:first-child) {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		border-bottom-left-radius: @border-radius-base;
+		border-bottom-right-radius: @border-radius-base;
+  }
+}
+.fdd-btn-group-vertical > .fdd-btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+.fdd-btn-group-vertical > .fdd-btn-group:first-child:not(:last-child) {
+  > .fdd-btn:last-child,
+  > .dropdown-toggle {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+  }
+}
+.fdd-btn-group-vertical > .fdd-btn-group:last-child:not(:first-child) > .fdd-btn:first-child {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+

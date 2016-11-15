@@ -1,0 +1,75 @@
+//
+// Loading
+// --------------------------------------------------
+
+.fdd-loading {
+  display: block;
+  list-style: none;
+}
+
+// loading-line
+.fdd-loading-line {
+  width: 15rem;
+  .loading-progress-bar {
+    background-color: #dbdbdb;
+    height: 7px;
+    border-radius: 11px;
+    .loading-progress-rate {
+      background-color: @primary-color-hover;
+      height: 7px;
+      border-radius: 11px;
+    }
+  }
+  .loading-progress-text {
+    margin-top: 10px;
+    text-align: center;
+    font-size: @font-size-base;
+  }
+}
+
+// loading-circle
+.fdd-loading-circle {
+  background-color: #dbdbdb;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  .pie-left, .pie-right {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .left, .right {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-color: #f2402b;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(30deg);
+  }
+  .pie-left, .right {
+    clip:rect(0, 40px, auto, 0);
+  }
+  .pie-right, .left {
+    clip:rect(0, auto, auto, 40px);
+  }
+  .mask {
+    display: block;
+    content: '';
+    background-color: #fff;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    line-height: 68px;
+    font-size: 16px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,41 @@
+//
+// Input
+// --------------------------------------------------
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+input[type="checkbox"], input[type="radio"] {
+    margin: 4px 0 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+input[type="radio"], input[type="checkbox"] {
+    -webkit-appearance: none;
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    color: #f2402b;
+    outline: none;
+}
+input[type="checkbox"]:checked:after {
+    content: "\E909";
+}
+input[type="checkbox"]:after {
+    content: "\E908";
+}
+input[type="radio"]:checked:after {
+    content: "\E909";
+}
+input[type="radio"]:after {
+    content: "\E908";
+}
